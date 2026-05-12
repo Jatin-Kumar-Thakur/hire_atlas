@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HireAtlas</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <div class="logo">HA</div>
+      <span class="app-name">HireAtlas</span>
+    </div>
+    <button id="logoutBtn" class="icon-btn" title="Logout" style="display:none">&#9211;</button>
+  </div>
+
+  <!-- Auth Screen -->
+  <div id="authScreen" class="screen">
+    <p class="auth-message">Login to your HireAtlas account to start saving jobs.</p>
+    <div class="form-group">
+      <label>API URL</label>
+      <input type="text" id="apiUrl" placeholder="https://your-backend.onrender.com" class="input" />
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="email" placeholder="your@email.com" class="input" />
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="••••••••" class="input" />
+    </div>
+    <button id="loginBtn" class="btn btn-primary">Login</button>
+    <p id="authError" class="error-msg"></p>
+  </div>
+
+  <!-- Not a Job Page Screen -->
+  <div id="notJobScreen" class="screen" style="display:none">
+    <div class="empty-state">
+      <div class="empty-icon">🔍</div>
+      <p class="empty-title">Not a job page</p>
+      <p class="empty-subtitle">Navigate to a job listing on LinkedIn, Naukri, or Internshala to auto-fill details.</p>
+      <div class="platform-links">
+        <a href="https://www.linkedin.com/jobs" target="_blank" class="platform-link">LinkedIn Jobs</a>
+        <a href="https://www.naukri.com" target="_blank" class="platform-link">Naukri</a>
+        <a href="https://internshala.com/jobs" target="_blank" class="platform-link">Internshala</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Already Saved Screen -->
+  <div id="alreadySavedScreen" class="screen" style="display:none">
+    <div class="already-saved">
+      <div class="check-icon">✅</div>
+      <p class="saved-title">Already in tracker!</p>
+      <p class="saved-subtitle">You've already saved this job to your tracker.</p>
+      <button id="viewTrackerBtn" class="btn btn-secondary">View in HireAtlas</button>
+      <button id="saveAnywayBtn" class="btn btn-ghost">Save again anyway</button>
+    </div>
+  </div>
+
+  <!-- Main Save Screen -->
+  <div id="mainScreen" class="screen" style="display:none">
+    <div id="detectedBadge" class="detected-badge">
+      <span id="sourceName">Job</span> detected
+    </div>
+
+    <div class="form-group">
+      <label>Company *</label>
+      <input type="text" id="company" class="input" placeholder="Company name" />
+    </div>
+
+    <div class="form-group">
+      <label>Role *</label>
+      <input type="text" id="role" class="input" placeholder="Job title" />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Source</label>
+        <select id="source" class="input select">
+          <option>LinkedIn</option>
+          <option>Naukri</option>
+          <option>Internshala</option>
+          <option>Company Website</option>
+          <option>Referral</option>
+          <option>AngelList</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Status</label>
+        <select id="status" class="input select">
+          <option>Applied</option>
+          <option>Shortlisted</option>
+          <option>Interview Scheduled</option>
+          <option>Offer</option>
+          <option>Rejected</option>
+          <option>Ghosted</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Location</label>
+      <input type="text" id="location" class="input" placeholder="City / Remote" />
+    </div>
+
+    <div class="form-group">
+      <label>Notes</label>
+      <textarea id="notes" class="input textarea" placeholder="Any notes..." rows="2"></textarea>
+    </div>
+
+    <button id="saveBtn" class="btn btn-primary">&#128190; Save to HireAtlas</button>
+    <p id="saveError" class="error-msg"></p>
+  </div>
+
+  <!-- Success Screen -->
+  <div id="successScreen" class="screen" style="display:none">
+    <div class="success-state">
+      <div class="success-icon">🎉</div>
+      <p class="success-title">Saved!</p>
+      <p id="successMessage" class="success-subtitle">Application saved successfully</p>
+      <button id="viewApplicationBtn" class="btn btn-primary">View in HireAtlas</button>
+      <button id="saveAnotherBtn" class="btn btn-ghost">Save another</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="../utils/storage.js"></script>
+<script src="../utils/api.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
