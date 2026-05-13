@@ -75,11 +75,11 @@ Configure the service:
 
 5. Click **Create Web Service**
 6. Wait 3–5 minutes for the build to complete
-7. Copy the service URL, e.g. `https://job-tracker-api.onrender.com`
+7. Copy the service URL, e.g. `https://hireatlas-api.onrender.com`
 
 **Test it:**
 ```
-GET https://job-tracker-api.onrender.com/api/health
+GET https://hireatlas-api.onrender.com/api/health
 ```
 Should return `{ "status": "ok", ... }`
 
@@ -104,11 +104,11 @@ Configure:
 
 | Key | Value |
 |-----|-------|
-| `VITE_API_URL` | `https://job-tracker-api.onrender.com` |
+| `VITE_API_URL` | `https://hireatlas-api.onrender.com/api` |
 
 5. Click **Deploy**
 6. Wait 1–2 minutes
-7. Copy your live URL, e.g. `https://job-tracker.vercel.app`
+7. Copy your live URL, e.g. `https://hire-atlas.vercel.app`
 
 ---
 
@@ -122,8 +122,8 @@ Now that you have the frontend URL, tell the backend which origins are allowed:
 
 | Key | Value |
 |-----|-------|
-| `CLIENT_URL` | `https://job-tracker.vercel.app` |
-| `CLIENT_URL_WWW` | `https://www.job-tracker.vercel.app` |
+| `CLIENT_URL` | `https://hire-atlas.vercel.app` |
+| `CLIENT_URL_WWW` | `https://www.hire-atlas.vercel.app` |
 
 4. Render auto-redeploys (~2 minutes). Wait for the green **Live** status.
 
@@ -138,14 +138,14 @@ Now that the backend URL is live, update the extension files:
 // Change this line:
 resolve(r.jt_api_url || 'https://your-backend.onrender.com')
 // To:
-resolve(r.jt_api_url || 'https://job-tracker-api.onrender.com')
+resolve(r.jt_api_url || 'https://hireatlas-api.onrender.com')
 ```
 
 **`extension/manifest.json`** — update `host_permissions`:
 ```json
 "https://your-backend.onrender.com/*"
 // Change to:
-"https://job-tracker-api.onrender.com/*"
+"https://hireatlas-api.onrender.com/*"
 ```
 
 Then reload the extension:
@@ -160,8 +160,8 @@ Then reload the extension:
 Edit `README.md` — replace the placeholder URLs in the Live Demo table:
 
 ```md
-| Frontend | https://job-tracker.vercel.app |
-| Backend API | https://job-tracker-api.onrender.com |
+| Frontend | https://hire-atlas.vercel.app |
+| Backend API | https://hireatlas-api.onrender.com |
 ```
 
 Then commit and push:
@@ -220,5 +220,5 @@ node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
 | CORS error in browser | Check `CLIENT_URL` in Render matches Vercel URL exactly (no trailing slash) |
 | 401 on all requests | JWT_SECRET mismatch — make sure it's the same value as when tokens were issued |
 | Backend sleeping (Render free tier) | The keep-alive ping runs every 14 min — first request after sleep takes ~30s |
-| Extension login fails | Check the API URL in the extension popup matches `https://job-tracker-api.onrender.com` |
+| Extension login fails | Check the API URL in the extension popup matches `https://hireatlas-api.onrender.com` |
 | CSV import fails | File must be UTF-8 encoded. Re-save from Excel as CSV UTF-8 |

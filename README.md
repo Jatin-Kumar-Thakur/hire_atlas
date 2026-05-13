@@ -11,10 +11,8 @@ A full-stack MERN application to track your job applications end-to-end — with
 
 | Service | URL |
 |---------|-----|
-| Frontend | https://your-app.vercel.app |
-| Backend API | https://your-backend.onrender.com |
-
-> Update the URLs above after deploying.
+| Frontend | https://hire-atlas.vercel.app |
+| Backend API | https://hireatlas-api.onrender.com |
 
 ---
 
@@ -122,15 +120,15 @@ npm run dev
 | `EMAIL_PORT` | SMTP port | `587` |
 | `EMAIL_USER` | Sender email | `your@gmail.com` |
 | `EMAIL_PASS` | Gmail App Password | 16-char code |
-| `CLIENT_URL` | Frontend URL (CORS) | `https://your-app.vercel.app` |
-| `CLIENT_URL_WWW` | Frontend www URL (CORS) | `https://www.your-app.vercel.app` |
+| `CLIENT_URL` | Frontend URL (CORS) | `https://hire-atlas.vercel.app` |
+| `CLIENT_URL_WWW` | Frontend www URL (CORS) | `https://www.hire-atlas.vercel.app` |
 | `NODE_ENV` | Environment | `production` |
 
 ### Frontend (`frontend/.env.production`)
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `VITE_API_URL` | Backend API base URL | `https://your-backend.onrender.com` |
+| `VITE_API_URL` | Backend API base URL | `https://hireatlas-api.onrender.com/api` |
 
 ---
 

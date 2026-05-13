@@ -13,4 +13,4 @@ Disallow: /analytics
 Disallow: /settings
 Disallow: /reset-password/
 
-Sitemap: https://your-app.vercel.app/sitemap.xml
+Sitemap: %VITE_APP_URL%/sitemap.xml

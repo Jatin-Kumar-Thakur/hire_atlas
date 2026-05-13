@@ -58,7 +58,7 @@
     "https://www.naukri.com/*",
     "https://internshala.com/*",
     "http://localhost:5000/*",
-    "https://your-backend.onrender.com/*",
+    "https://hireatlas-api.onrender.com/*",
     "https://*/*"
   ]
 }

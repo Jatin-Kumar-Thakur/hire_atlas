@@ -24,7 +24,7 @@ const Storage = {
   getApiUrl: () =>
     new Promise((resolve) => {
       chrome.storage.local.get(['jt_api_url'], (r) =>
-        resolve(r.jt_api_url || 'https://your-backend.onrender.com')
+        resolve(r.jt_api_url || 'https://hireatlas-api.onrender.com')
       );
     }),
 
